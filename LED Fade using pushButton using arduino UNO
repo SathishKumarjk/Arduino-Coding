@@ -1,0 +1,18 @@
+int led=3;
+int pushButton=1;
+
+int push=0,push1=0;
+
+void setup() {
+  pinMode(led, OUTPUT);
+  pinMode(pushButton, INPUT);
+}
+
+
+void loop() {
+  digitalWrite(led, LOW);
+  push=digitalRead(pushButton);
+  push1=push1+push;
+  analogWrite(led,push1);
+  delay(30);
+}
