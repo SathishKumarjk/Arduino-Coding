@@ -1,0 +1,19 @@
+int pushButton = 2;
+int LED = 13;
+bool state=false;
+
+void setup() {   
+  pinMode(LED, OUTPUT);
+  pinMode(pushButton, INPUT);
+}
+
+void loop() {
+  state = digitalRead(pushButton);
+ 
+  if(state == true){
+    digitalWrite(LED,HIGH); 
+  }
+  else{
+    digitalWrite(LED,LOW);
+  }
+}
