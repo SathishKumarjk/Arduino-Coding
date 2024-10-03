@@ -1,0 +1,26 @@
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+
+#define DisplayWidth 128
+#define DisplayLength 64
+#define Oled_Reset -1
+
+Adafruit_SSD1306 display(DisplayWidth,DisplayLength,&Wire,Oled_Reset);
+void setup() {
+  if(!display.begin(SSD1306_SWITCHCAPVCC,0x3C)){
+    display.println(F("SSD1306 is faild to allocate"));
+    for(;;);
+  }
+  display.clearDisplay();
+
+  display.setTextSize(2);
+  display.setTextColor(WHITE);
+  display.setCursor(0,10);
+  display.print("Hai,Hello!");
+  display.display();
+}
+
+void loop() {
+  
+}
