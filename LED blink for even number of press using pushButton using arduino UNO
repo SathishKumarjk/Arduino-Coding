@@ -1,0 +1,25 @@
+int red=12;
+int green=13;
+int button=8;
+
+void setup() {
+  pinMode(red, OUTPUT);
+  pinMode(green, OUTPUT);
+  pinMode(button, INPUT);
+}
+
+void loop() {
+  int buttonState=0;
+  buttonState=digitalRead(button);
+  int push=0;
+  push+=buttonState;
+
+  if(buttonState%2==0){
+    digitalWrite(green, HIGH);
+    digitalWrite(red, LOW);
+  }
+  else {
+    digitalWrite(red, HIGH);
+    digitalWrite(green, LOW);
+  }
+}
