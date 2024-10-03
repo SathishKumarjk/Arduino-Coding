@@ -1,0 +1,43 @@
+#include <Keypad.h>
+
+const byte row=4;
+const byte col=4;
+
+char keys[row][col]={{'1','2','3','A'},{'4','5','6','B'},{'7','8','9','C'},{'*','0','#','D'}};
+
+byte rowpin[row]={12,11,10,9};
+byte colpin[col]={8,7,6,5};
+
+Keypad keypad=Keypad(makeKeymap(keys),rowpin,colpin,row,col);
+void setup() {
+  pinMode(13,OUTPUT);
+  pinMode(2,OUTPUT);
+  pinMode(3,OUTPUT);
+  pinMode(4,OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  char key=keypad.getKey();
+
+  if(key=='1'){
+    digitalWrite(13, HIGH);
+    delay(2000);
+    digitalWrite(13, LOW);
+  }
+  else if(key=='2'){
+    digitalWrite(2, HIGH);
+    delay(2000);
+    digitalWrite(2, LOW);
+  }
+  else if(key=='3'){
+    digitalWrite(3,HIGH);
+    delay(2000);
+    digitalWrite(3, LOW);
+  }
+  else if(key=='4'){
+    digitalWrite(4, HIGH);
+    delay(2000);
+    digitalWrite(4, LOW);
+  }
+}
